@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>progess bar</title>
+    <style>
+        body {
+            background-color: gray;
+        }
+        .bar-container, button {
+            width: 300px;
+            height: 50px;
+            margin: 50px;
+            background-color: honeydew;
+        }
+        button {
+            background-color: green;
+        }
+        .bar {
+            background-color: blue;
+            height: 100%;
+            width: 0%;
+        }
+    </style>
+</head>
+<body>
+    <div class="bar-container">
+        <div class="bar">
+
+        </div>
+    </div>
+    <button onclick="fillBar(2)">Start</button>
+
+    <script>
+        function fillBar(seconds) {
+            const bar = document.querySelector('.bar');
+            let atPercent = 0
+            const interval =  setInterval(() => {
+                bar.style.width = atPercent + '%';
+                atPercent ++
+                console.log('running')
+                if(atPercent > 100) {
+                    clearInterval(interval);
+                }
+            }, (seconds * 1000)/ 100)
+        }
+    </script>
+</body>
+</html>
